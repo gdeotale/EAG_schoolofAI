@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Split Tracker</string>
+    <string name="default_web_client_id" translatable="false">163551579266-5r8d380jrfflv2paql7ibqio6hftnq53.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">163551579266</string>
+    <string name="google_api_key" translatable="false">AIzaSyBZvWR_AzqactKpi1TpCnADrg5CnlJsyjc</string>
+    <string name="google_app_id" translatable="false">1:163551579266:android:a6426ba39b48d7bb3a789b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBZvWR_AzqactKpi1TpCnADrg5CnlJsyjc</string>
+    <string name="google_storage_bucket" translatable="false">split-tracker-f2aa3.firebasestorage.app</string>
+    <string name="project_id" translatable="false">split-tracker-f2aa3</string>
+    <style name="Theme.SplitTracker" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#673AB7</item>
+        <item name="android:statusBarColor">#673AB7</item>
+    </style>
+</resources>

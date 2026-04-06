@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "163551579266",
+    "project_id": "split-tracker-f2aa3",
+    "storage_bucket": "split-tracker-f2aa3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163551579266:android:a6426ba39b48d7bb3a789b",
+        "android_client_info": {
+          "package_name": "com.splittracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163551579266-knm2dhm4t89op9cgfobadths9hqflmkn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.splittracker",
+            "certificate_hash": "9d55d2e8866ced7440da832bcf533f8573c5727b"
+          }
+        },
+        {
+          "client_id": "163551579266-5r8d380jrfflv2paql7ibqio6hftnq53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZvWR_AzqactKpi1TpCnADrg5CnlJsyjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163551579266-5r8d380jrfflv2paql7ibqio6hftnq53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

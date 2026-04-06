@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.splittracker.app-mergeDebugResources-56:/values-v31/values-v31.xml",
+            "map": [
+                {
+                    "source": "D:\\EAG\\app\\src\\main\\res\\values-v31\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "531"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "487"
+                    }
+                }
+            ]
+        }
+    ]
+}

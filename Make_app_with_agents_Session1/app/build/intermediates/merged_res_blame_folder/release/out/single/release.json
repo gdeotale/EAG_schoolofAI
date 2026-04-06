@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.splittracker.app-merged_res-58:/drawable-nodpi_groups_bg.jpg.flat",
+        "source": "com.splittracker.app-main-59:/drawable-nodpi/groups_bg.jpg"
+    },
+    {
+        "merged": "com.splittracker.app-merged_res-58:/drawable-nodpi_app_icon.jpg.flat",
+        "source": "com.splittracker.app-main-59:/drawable-nodpi/app_icon.jpg"
+    },
+    {
+        "merged": "com.splittracker.app-merged_res-58:/drawable-nodpi_group_details_bg.jpg.flat",
+        "source": "com.splittracker.app-main-59:/drawable-nodpi/group_details_bg.jpg"
+    }
+]

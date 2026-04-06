@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\GUNJAN\\.gradle\\daemon\\8.5\\com.splittracker.app-merged_res-58:\\drawable-nodpi_app_icon.png.flat",
+        "source": "C:\\Users\\GUNJAN\\.gradle\\daemon\\8.5\\com.splittracker.app-main-60:\\drawable-nodpi\\app_icon.png"
+    },
+    {
+        "merged": "com.splittracker.app-merged_res-58:/drawable-nodpi_groups_bg.jpg.flat",
+        "source": "com.splittracker.app-main-60:/drawable-nodpi/groups_bg.jpg"
+    },
+    {
+        "merged": "com.splittracker.app-merged_res-58:/drawable-nodpi_app_icon.jpg.flat",
+        "source": "com.splittracker.app-main-60:/drawable-nodpi/app_icon.jpg"
+    },
+    {
+        "merged": "C:\\Users\\GUNJAN\\.gradle\\daemon\\8.5\\com.splittracker.app-merged_res-58:\\drawable-nodpi_group_details_bg.png.flat",
+        "source": "C:\\Users\\GUNJAN\\.gradle\\daemon\\8.5\\com.splittracker.app-main-60:\\drawable-nodpi\\group_details_bg.png"
+    },
+    {
+        "merged": "com.splittracker.app-merged_res-58:/drawable-nodpi_group_details_bg.jpg.flat",
+        "source": "com.splittracker.app-main-60:/drawable-nodpi/group_details_bg.jpg"
+    },
+    {
+        "merged": "C:\\Users\\GUNJAN\\.gradle\\daemon\\8.5\\com.splittracker.app-merged_res-58:\\drawable-nodpi_groups_bg.png.flat",
+        "source": "C:\\Users\\GUNJAN\\.gradle\\daemon\\8.5\\com.splittracker.app-main-60:\\drawable-nodpi\\groups_bg.png"
+    }
+]
