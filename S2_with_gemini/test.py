@@ -8,10 +8,19 @@ load_dotenv()
 client = genai.Client()
 
 prompt = """
-You are a code generator.
-Design a chrome plugin which will find top 10 gainers and losers of todays indian market and show them in a table, when i hover on particular stock it should show key rations related to stock like P/E, Debt to equity ratio, P/B, Book value and current market price.
+You are a senior Chrome Extension developer. 
+Design a Chrome plugin that displays the top 5 gainers and top 5 losers of the Indian market today in a clean HTML table.
+When hovering over a particular stock, show a tooltip with key ratios: P/E, Debt to Equity, P/B, Book value, and Current Market Price.
 
-Return a JSON object where the keys are the filenames (e.g., "manifest.json", "index.html", "script.js") and the values are their corresponding raw code contents. Return ONLY the JSON, without any markdown formatting wrappers.
+CRITICAL IMPLEMENTATION RULES for the plugin's code:
+1. DO NOT USE MOCK DATA. You must write JavaScript that fetches real, live data.
+2. Use a hardcoded array of 20 Nifty 50 symbols with '.NS' appended (e.g., 'RELIANCE.NS', 'TCS.NS', 'HDFCBANK.NS').
+3. To get live price and change %, use `Promise.all` to fetch `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1d`. From the JSON response (`res.chart.result[0].meta`), use `regularMarketPrice` and `chartPreviousClose` to calculate the percentage change.
+4. To get deeper ratios (P/E, Book Value), use `fetch()` on `https://www.screener.in/company/${symbolWithoutNS}/consolidated/`, then use `DOMParser` to parse the HTML and find the values by iterating over the `#top-ratios li` class elements. (If unavailable, fallback to 'N/A').
+5. Use "Rs." instead of the Rupee symbol string to prevent encoding glitches in some browsers.
+6. Your `manifest.json` MUST include `host_permissions: ["https://query2.finance.yahoo.com/*", "https://www.screener.in/*"]`.
+
+Return ONLY a raw, valid JSON object where keys are the specific filenames (e.g., "manifest.json", "popup.html", "popup.js", "style.css") and the values are their corresponding completed raw code strings. Do not use Markdown formatting.
 """
 
 response = client.models.generate_content(

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Market Pulse</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Indian Market Top 10</h1>
+            <div class="tabs">
+                <button id="btn-gainers" class="active">Gainers</button>
+                <button id="btn-losers">Losers</button>
+            </div>
+        </header>
+
+        <main>
+            <table id="stock-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Price</th>
+                        <th>Change %</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Data injected here -->
+                </tbody>
+            </table>
+        </main>
+
+        <div id="tooltip" class="tooltip hidden">
+            <div class="tooltip-header">
+                <span id="tt-name">Stock Name</span>
+            </div>
+            <div class="tooltip-grid">
+                <div class="item"><span>CMP:</span> <strong id="tt-cmp">-</strong></div>
+                <div class="item"><span>P/E:</span> <strong id="tt-pe">-</strong></div>
+                <div class="item"><span>P/B:</span> <strong id="tt-pb">-</strong></div>
+                <div class="item"><span>D/E:</span> <strong id="tt-de">-</strong></div>
+                <div class="item"><span>BV:</span> <strong id="tt-bv">-</strong></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

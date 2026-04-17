@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "India Market Pulse",
+  "name": "Nifty 50 Gainer/Loser Tracker",
   "version": "1.0",
-  "description": "Shows top 10 NSE gainers and losers with detailed stock ratios on hover.",
+  "description": "Displays top 5 gainers and losers in the Indian market with key ratios on hover.",
   "action": {
     "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
-    }
+    "default_width": 400,
+    "default_height": 600
   },
-  "permissions": ["storage"]
+  "host_permissions": [
+    "http://127.0.0.1:5000/*"
+  ],
+  "permissions": []
 }
