@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "India Market Pulse",
+  "version": "1.0",
+  "description": "Shows top 10 NSE gainers and losers with detailed stock ratios on hover.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "permissions": ["storage"]
+}

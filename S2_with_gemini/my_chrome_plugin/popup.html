@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h3>Indian Market Today</h3>
+    
+    <div class="tabs">
+      <button id="tab-gainers" class="tab-btn active">Top Gainers</button>
+      <button id="tab-losers" class="tab-btn">Top Losers</button>
+    </div>
+
+    <table id="stock-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>Change %</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <!-- Data injected here -->
+      </tbody>
+    </table>
+
+    <div id="tooltip" class="tooltip hidden">
+      <div class="tooltip-header" id="tt-name">Stock Name</div>
+      <div class="tooltip-grid">
+        <div class="tt-item"><span>CMP:</span> <span id="tt-cmp">-</span></div>
+        <div class="tt-item"><span>P/E:</span> <span id="tt-pe">-</span></div>
+        <div class="tt-item"><span>D/E Ratio:</span> <span id="tt-de">-</span></div>
+        <div class="tt-item"><span>P/B:</span> <span id="tt-pb">-</span></div>
+        <div class="tt-item"><span>Book Value:</span> <span id="tt-bv">-</span></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
