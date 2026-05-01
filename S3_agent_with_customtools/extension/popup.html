@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Travel Planner</h1>
+        <p>Agentic reasoning enabled</p>
+    </div>
+
+    <div class="chat-container" id="chat-container">
+        <!-- Messages will be injected here -->
+        <div class="message agent">
+            <div class="avatar">✈️</div>
+            <div class="bubble">Hi! I'm your AI travel planner. Where would you like to go?</div>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Ask me about flights, hotels, or attractions..." />
+        <button id="send-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+        </button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

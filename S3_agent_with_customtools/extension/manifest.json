@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Travel Planner Agent",
+  "version": "1.0",
+  "description": "An Agentic AI travel planner that shows its reasoning.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ]
+}
