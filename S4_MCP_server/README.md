@@ -1,155 +1,68 @@
-# 🇮🇳 NSE/BSE MCP Server
+# EAG Stock Analyst: Agentic Chrome Extension
 
-A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for Indian stock market data — covering the National Stock Exchange (NSE) and Bombay Stock Exchange (BSE).
+A highly capable, real-time agentic stock market analysis chatbot that runs directly in your browser as a Chrome Side Panel. This project uses a **Local LLM Agent** built on the Model Context Protocol (MCP) to scrape live Indian Stock Market data (NSE/BSE), generate insights, render beautiful markdown tables, and maintain full conversational memory.
 
-Plug this into Claude Desktop and ask questions like:
-- *"What is the current price and P/E of RELIANCE?"*
-- *"Compare HDFCBANK, ICICIBANK, and SBIN on valuation metrics"*
-- *"Show me RAIN Industries' 1-year historical data"*
-- *"What is the NIFTY50 trading at today?"*
-- *"Get the dividend history for ITC"*
-- *"Who are the top institutional shareholders of TCS?"*
-
-**No API key required.** Powered by [yfinance](https://github.com/ranaroussi/yfinance).
+https://www.youtube.com/watch?v=r3MqiOw_jLE
 
 ---
 
-## 🛠️ Tools
+## ✨ Key Features
 
-| Tool | Description |
-|------|-------------|
-| `nse_bse_get_quote` | Live price quote with valuation metrics (P/E, P/B, EPS, market cap) |
-| `nse_bse_get_historical` | Historical OHLCV data with configurable period and interval |
-| `nse_bse_get_fundamentals` | Deep fundamental analysis — revenue, margins, ROE, analyst targets |
-| `nse_bse_get_financials` | Annual income statement, balance sheet & cash flow (last 4 years) |
-| `nse_bse_compare_stocks` | Side-by-side comparison table for multiple stocks |
-| `nse_bse_get_index` | Quote and performance for NIFTY50, SENSEX, and 13 other indices |
-| `nse_bse_list_indices` | List all supported Indian market indices |
-| `nse_bse_get_dividends` | Full dividend payout history |
-| `nse_bse_get_shareholders` | Top institutional holders and ownership breakdown |
+- **Chrome Side Panel**: The agent lives persistently in a Chrome Side Panel, allowing you to browse the web and analyze stocks simultaneously without the window closing.
+- **Real-Time Streaming**: Watch the agent's internal reasoning! The backend streams the agent's "thoughts" and tool executions (via Server-Sent Events) instantly to the UI before presenting the final answer.
+- **Conversational Memory**: The backend maintains a global chat history across queries, so you can ask contextual follow-up questions (e.g., *"What is its dividend history?"*).
+- **Auto-Logging & Saving**: The backend automatically acts as a stenographer, silently logging your full chat transcript to `sandbox/current_chat.txt`. You can ask the agent to *"save this chat as force.txt"*, and it will autonomously use its file tools to rename and export your history.
+- **Rich Markdown UI**: Final agent responses are parsed beautifully into HTML. Data comparisons are automatically formatted into crisp tables.
 
 ---
 
-## 🚀 Installation
+## 🏗️ Architecture
 
-### Prerequisites
-- Python 3.10+
-- Claude Desktop (for local use)
-
-### Steps
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/vanshikaaa01/nse-bse-mcp.git
-cd nse-bse-mcp
-
-# 2. Install dependencies
-pip install -r requirements.txt
-```
-
-### Configure Claude Desktop
-
-Find your Claude Desktop config file:
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-
-Add this to your config (use full paths):
-
-**Windows:**
-```json
-{
-  "mcpServers": {
-    "nse-bse": {
-      "command": "C:\\Python312\\python.exe",
-      "args": ["C:\\full\\path\\to\\nse-bse-mcp\\server.py"]
-    }
-  }
-}
-```
-
-**macOS/Linux:**
-```json
-{
-  "mcpServers": {
-    "nse-bse": {
-      "command": "python3",
-      "args": ["/full/path/to/nse-bse-mcp/server.py"]
-    }
-  }
-}
-```
-
-Then **fully restart Claude Desktop** (right-click tray icon → Quit, then reopen).
+1. **`backend.py` (The Bridge)**: A Flask HTTP server running locally on `127.0.0.1:5000`. It receives queries from the Chrome Extension, manages the global conversation memory, and uses Python Generators to stream Server-Sent Events back to the UI.
+2. **`agent.py` (The Brain)**: The core LLM logic. It uses the `mcp` SDK to connect to `server.py` via `stdio`. It runs a ReAct loop, yielding its thought process step-by-step and enforcing verbatim file saving rules.
+3. **`server.py` (The Hands)**: The underlying MCP tool server. It defines tools for fetching financial data (`yfinance`), comparing peers, reading news, and saving text files locally.
+4. **`chrome_plugin/` (The Face)**: A Manifest V3 Chrome Extension. It uses `fetch` to read the HTTP stream, dynamically creates chat bubbles, and uses `marked.js` to render markdown.
 
 ---
 
-## 💡 Usage Examples
+## 🚀 Installation & Setup
 
-### Get a live stock quote
-> *"What is the current quote for RAIN Industries on NSE?"*
+### 1. Backend Setup
+1. Clone the repository and navigate to the project root.
+2. Install the necessary Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   pip install flask
+   ```
+3. Start the Flask streaming backend:
+   ```bash
+   python backend.py
+   ```
+   *Note: Keep this terminal window open. The Chrome plugin requires it to function.*
 
-### Historical data
-> *"Get me 1 year of daily OHLCV data for HDFCBANK on NSE"*
-
-### Peer comparison
-> *"Compare RELIANCE, ONGC, and BPCL on P/E, P/B, and ROE"*
-
-### Index tracking
-> *"What is NIFTYBANK at today? Show me the past month's performance"*
-
-### Fundamental research
-> *"Give me a full fundamental breakdown of Hindustan Zinc"*
-
----
-
-## 📊 Supported Indices
-
-| Index | Description |
-|-------|-------------|
-| NIFTY50 | NSE's flagship large-cap index |
-| SENSEX | BSE's 30-stock benchmark |
-| NIFTYBANK | Banking sector index |
-| NIFTYMIDCAP | Midcap 50 index |
-| NIFTYIT | IT sector index |
-| NIFTYPHARMA | Pharma sector index |
-| NIFTYFMCG | FMCG sector index |
-| NIFTYAUTO | Automobile sector index |
-| NIFTYREALTY | Real estate index |
-| NIFTYMETAL | Metals sector index |
-| NIFTYENERGY | Energy sector index |
-| NIFTY100 | Top 100 stocks |
-| NIFTY200 | Top 200 stocks |
-| NIFTYNEXT50 | Next 50 after Nifty50 |
-| INDIAVIX | India Volatility Index |
+### 2. Chrome Extension Setup
+1. Open Google Chrome and navigate to `chrome://extensions/`.
+2. Enable **Developer mode** in the top right corner.
+3. Click **Load unpacked** and select the `chrome_plugin` folder located inside this repository.
+4. Pin the **EAG Stock Analyst** extension to your browser toolbar.
 
 ---
 
-## 📝 Notes
+## 💡 Usage
 
-- Exchange suffixes: `.NS` for NSE, `.BO` for BSE (handled automatically)
-- Data is delayed by ~15 minutes during market hours
-- Financial data (income statement, balance sheet) is annual and may lag by 1–2 quarters
-- For real-time tick data, a broker API (Zerodha Kite, AngelOne, etc.) is recommended
+1. Click the extension icon in your Chrome toolbar. A persistent Side Panel will open on the right side of your screen.
+2. Type a query into the chat box, such as:
+   - *"Analyze the fundamentals of Force Motors (FORCEMOT)."*
+   - *"Compare HDFCBANK and ICICIBANK."*
+3. Watch the agent's reasoning stream live in the chat bubble.
+4. Ask a contextual follow-up:
+   - *"What is its dividend history?"*
+5. Save your research:
+   - *"Save our conversation to my_research.txt"*
+6. Find all your exported `.txt` transcripts safely stored in the `sandbox/` directory!
 
 ---
 
 ## ⚠️ Disclaimer
 
 This tool is for **educational and research purposes only**. Data is sourced from Yahoo Finance and may contain errors or delays. This is not financial advice. Always verify data from official NSE/BSE sources before making investment decisions.
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
-
----
-
-## 🤝 Contributing
-
-PRs welcome! Areas for contribution:
-- Add support for F&O (futures & options) data
-- Add options chain tool
-- Add mutual fund NAV tracking
-- Add screener integration (Screener.in)
-- Add corporate actions (bonus, splits, rights)
