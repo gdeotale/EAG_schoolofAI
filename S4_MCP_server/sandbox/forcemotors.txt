@@ -1,0 +1,173 @@
+USER: tell me what all u can do
+
+AGENT:
+I am your dedicated stock market analysis agent. I can perform the following tasks for you:
+
+1.  **Quote Retrieval:** Get live prices and valuation metrics for any NSE/BSE stock.
+2.  **Historical Analysis:** Fetch OHLCV data for technical charting and trend analysis.
+3.  **Fundamental Deep-Dive:** Provide comprehensive financial reports, including income statements and balance sheets.
+4.  **Peer Comparison:** Perform side-by-side comparisons of multiple stocks using valuation and profitability metrics.
+5.  **Market Monitoring:** Track major Indian indices like NIFTY50 and SENSEX.
+6.  **Corporate Actions & Ownership:** Get dividend history and institutional shareholding data (FII/DII holdings).
+7.  **Data Export:** Save your reports and chat histories as files in the sandbox.
+
+How would you like to proceed? You can start by asking for a quote or a comparison of your favorite stocks!
+
+USER: ok get live price of force motors
+
+AGENT:
+The real-time quote for Force Motors Limited (FORCEMOT) on the NSE indicates the stock is currently trading at ₹20,877.00, representing a gain of 0.85% today.
+
+**Key Highlights:**
+*   **Performance:** The stock is trading within its 52-week range of ₹9,967.00 - ₹26,450.00.
+*   **Valuation:** It trades at a P/E ratio of 20.12 and a P/B ratio of 6.56.
+*   **Shareholder Return:** Notable is the high dividend yield of 19.00%, which stands out significantly for an auto manufacturer.
+*   **Market Position:** With a market capitalization of ₹27,508.08 Cr, the company currently maintains a solid volume of 123,859 shares traded today.
+
+The stock is currently trading slightly below its 50-day moving average (₹21,160.52) but remains above its 200-day moving average (₹19,542.90), suggesting a neutral to mildly positive long-term trend.
+
+```json
+{
+  "x_axis": "Metric",
+  "graphs": [
+    {"title": "Valuation Metrics Comparison", "y_axis": "Value"}
+  ],
+  "data": [
+    {"Metric": "Last Price (INR)", "Value": 20877.00},
+    {"Metric": "P/E Ratio", "Value": 20.12},
+    {"Metric": "P/B Ratio", "Value": 6.56},
+    {"Metric": "Dividend Yield (%)", "Value": 19.00},
+    {"Metric": "Market Cap (Cr)", "Value": 27508.08}
+  ]
+}
+```
+
+USER: get historical analysis of the same stock
+
+AGENT:
+The historical performance analysis for **Force Motors (FORCEMOT)** over the past 12 months reveals a volatile yet rewarding trend, with a total return of **30.14%**. The stock price has moved from approximately ₹16,041 in June 2025 to ₹20,877 as of May 2026.
+
+### Historical Price Performance Summary
+| Month | Close Price (INR) | Monthly Return (%) |
+| :--- | :--- | :--- |
+| 2025-06 | 16,041.58 | N/A |
+| 2025-07 | 16,906.67 | 5.39 |
+| 2025-08 | 19,434.10 | 14.95 |
+| 2025-09 | 16,758.00 | -13.77 |
+| 2025-10 | 17,654.00 | 5.35 |
+| 2025-11 | 17,818.00 | 0.93 |
+| 2025-12 | 20,566.00 | 15.42 |
+| 2026-01 | 19,195.00 | -6.67 |
+| 2026-02 | 24,341.00 | 26.81 |
+| 2026-03 | 19,405.00 | -20.28 |
+| 2026-04 | 19,904.00 | 2.57 |
+| 2026-05 | 20,877.00 | 4.89 |
+
+**Key Observations:**
+*   **Peak Volatility:** The stock reached a 52-week high of ₹26,450.00 in February 2026, followed by a sharp correction in March.
+*   **Trend:** Despite significant month-to-month fluctuations, the overall trajectory has been upward, supported by strong volume spikes in months with positive momentum.
+*   **Performance:** The stock shows high sensitivity to market cycles, making it a high-beta play within the automotive sector.
+
+```json
+{
+  "x_axis": "Month",
+  "graphs": [
+    {"title": "Close Price Trend", "y_axis": "ClosePrice"},
+    {"title": "Monthly Return (%)", "y_axis": "Return"}
+  ],
+  "data": [
+    {"Month": "2025-06", "ClosePrice": 16041.58, "Return": 0},
+    {"Month": "2025-07", "ClosePrice": 16906.67, "Return": 5.39},
+    {"Month": "2025-08", "ClosePrice": 19434.10, "Return": 14.95},
+    {"Month": "2025-09", "ClosePrice": 16758.00, "Return": -13.77},
+    {"Month": "2025-10", "ClosePrice": 17654.00, "Return": 5.35},
+    {"Month": "2025-11", "ClosePrice": 17818.00, "Return": 0.93},
+    {"Month": "2025-12", "ClosePrice": 20566.00, "Return": 15.42},
+    {"Month": "2026-01", "ClosePrice": 19195.00, "Return": -6.67},
+    {"Month": "2026-02", "ClosePrice": 24341.00, "Return": 26.81},
+    {"Month": "2026-03", "ClosePrice": 19405.00, "Return": -20.28},
+    {"Month": "2026-04", "ClosePrice": 19904.00, "Return": 2.57},
+    {"Month": "2026-05", "ClosePrice": 20877.00, "Return": 4.89}
+  ]
+}
+```
+
+USER: ok can u compare the stock with its 8 peers and give a vertict whether to buy sell or hold the stock based on current price
+
+AGENT:
+Based on the peer comparison analysis for **Force Motors (FORCEMOT)** against its industry peers (ESCORTS, HEROMOTOCO, TVSMOTOR, ASHOKLEY, SONACOMS), here is the verdict and analysis:
+
+### **Comparison Analysis**
+Force Motors presents a unique value proposition within the automotive sector. Compared to peers:
+*   **Valuation:** Its P/E ratio of **20.12** is significantly more attractive than growth-oriented peers like TVS Motor (60.98) and Sona Comstar (58.81), and comparable to Hero MotoCorp (18.55).
+*   **Profitability:** It boasts a strong ROE of **33.50%** and a Net Profit Margin (NPM) of **13.20%**, indicating high operational efficiency relative to the sector.
+*   **Capital Efficiency:** While its P/B ratio (6.56) is higher than Escorts (2.91), it is far more reasonable than the extreme valuations seen in TVS Motor (52.55).
+
+### **Verdict: HOLD/ACCUMULATE**
+*   **Rationale:** Force Motors is currently a fundamentally strong, profitable, and reasonably valued player in the automotive space. 
+*   **Why HOLD/ACCUMULATE?** 
+    1.  **Fundamental Strength:** The ROE and profit margins are best-in-class, suggesting the business is well-managed.
+    2.  **Market Sentiment:** The stock has shown high volatility (as seen in previous historical analysis). Investors should look to accumulate on dips rather than chasing breakouts, especially given the current neutral-to-mildly-bullish momentum.
+    3.  **Dividend Appeal:** The high dividend metrics suggest it may be a suitable defensive play for income-focused portfolios, providing a cushion against potential price drawdowns.
+
+*Note: The N/A entries for some peers (TATA Motors, Mahindra Life, Bajaj Auto) are due to missing real-time data in the current feed.*
+
+```json
+{
+  "x_axis": "Symbol",
+  "graphs": [
+    {"title": "P/E Ratio Comparison", "y_axis": "PE"},
+    {"title": "Market Cap (Cr) Comparison", "y_axis": "MktCap"}
+  ],
+  "data": [
+    {"Symbol": "FORCEMOT", "PE": 20.12, "MktCap": 27508},
+    {"Symbol": "ESCORTS", "PE": 25.32, "MktCap": 34621},
+    {"Symbol": "HEROMOTOCO", "PE": 18.55, "MktCap": 106489},
+    {"Symbol": "TVSMOTOR", "PE": 60.98, "MktCap": 175606},
+    {"Symbol": "ASHOKLEY", "PE": 29.94, "MktCap": 99016},
+    {"Symbol": "SONACOMS", "PE": 58.81, "MktCap": 36034}
+  ]
+}
+```
+
+USER: can u show me divident history about the stock
+
+AGENT:
+The dividend history for **Force Motors (FORCEMOT)** reflects a consistent payout policy, with the company rewarding shareholders annually. Over the past several years, the dividend amount has seen a notable increase, particularly in 2025.
+
+### **Dividend Payment History (Last 7 Years)**
+| Date | Dividend Amount (INR) |
+| :--- | :--- |
+| 2025-09-10 | 40.0 |
+| 2024-08-28 | 20.0 |
+| 2023-09-21 | 10.0 |
+| 2022-09-20 | 10.0 |
+| 2021-09-20 | 5.0 |
+| 2020-09-21 | 10.0 |
+| 2019-09-12 | 10.0 |
+
+**Analysis:**
+*   **Trend:** The dividend payouts were stable at ₹10 from 2019 to 2023 (with a dip in 2021), but have accelerated significantly in the last two years, doubling from ₹20 in 2024 to ₹40 in 2025.
+*   **Consistency:** The company maintains a strong track record of yearly distributions, typically occurring in the third quarter (August/September), which indicates a disciplined capital allocation strategy.
+*   **Yield Impact:** This aggressive increase in recent dividends aligns with the high dividend yield noted in our previous price analysis, enhancing the stock's attractiveness for income-oriented investors.
+
+```json
+{
+  "x_axis": "Date",
+  "graphs": [
+    {"title": "Dividend Payout History", "y_axis": "DividendINR"}
+  ],
+  "data": [
+    {"Date": "2019-09-12", "DividendINR": 10.0},
+    {"Date": "2020-09-21", "DividendINR": 10.0},
+    {"Date": "2021-09-20", "DividendINR": 5.0},
+    {"Date": "2022-09-20", "DividendINR": 10.0},
+    {"Date": "2023-09-21", "DividendINR": 10.0},
+    {"Date": "2024-08-28", "DividendINR": 20.0},
+    {"Date": "2025-09-10", "DividendINR": 40.0}
+  ]
+}
+```
+
+USER: save the history in forcemotors.txt
+

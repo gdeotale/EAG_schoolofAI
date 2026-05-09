@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EAG Stock Analyst</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; width: 100%; padding: 0; background: #faf5ff; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        .header { background: #5b21b6; color: white; padding: 15px; font-weight: bold; font-size: 16px; text-align: center; }
+        .chat-container { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #faf5ff; }
+        .input-container { padding: 10px; background: white; border-top: 1px solid #e5e7eb; display: flex; gap: 8px; }
+        textarea { flex: 1; height: 40px; padding: 10px; border: 1px solid #c4b5fd; border-radius: 20px; box-sizing: border-box; resize: none; font-family: inherit; font-size: 13px; line-height: 20px; outline: none; }
+        textarea:focus { border-color: #8b5cf6; }
+        button { background: #8b5cf6; color: white; border: none; padding: 0 20px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 13px; }
+        button:hover { background: #7c3aed; }
+        button:disabled { background: #a78bfa; cursor: not-allowed; }
+        
+        .bubble { padding: 10px 14px; border-radius: 12px; font-size: 13px; max-width: 85%; word-wrap: break-word; }
+        .bubble.user { background: #8b5cf6; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .bubble.agent { background: white; color: #1f2937; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #e5e7eb; box-shadow: 0 1px 2px rgba(0,0,0,0.05); width: 100%; box-sizing: border-box; }
+        
+        .stream-log { font-family: monospace; font-size: 11px; color: #6b7280; background: #f3f4f6; padding: 8px; border-radius: 6px; margin-top: 8px; max-height: 150px; overflow-y: auto; white-space: pre-wrap; }
+        .final-answer { margin-top: 8px; font-weight: 500; color: #111827; white-space: pre-wrap; }
+        
+        /* Markdown styles */
+        .final-answer pre { background: #1f2937; color: #f3f4f6; padding: 8px; border-radius: 6px; overflow-x: auto; }
+        .final-answer code { font-family: monospace; background: #e5e7eb; padding: 2px 4px; border-radius: 4px; color: #111827; }
+        .final-answer pre code { background: none; padding: 0; color: inherit; }
+        .final-answer p { margin-top: 0; margin-bottom: 10px; line-height: 1.5; }
+        .final-answer h1, .final-answer h2, .final-answer h3 { margin-top: 15px; margin-bottom: 5px; color: #4c1d95; }
+        .final-answer ul, .final-answer ol { margin-top: 5px; margin-bottom: 10px; padding-left: 20px; }
+        .final-answer table { border-collapse: collapse; width: 100%; margin-bottom: 10px; font-size: 12px; }
+        .final-answer th, .final-answer td { border: 1px solid #d1d5db; padding: 6px; text-align: left; }
+        .final-answer th { background: #f3f4f6; font-weight: bold; }
+        
+        .spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #8b5cf6; border-bottom-color: transparent; border-radius: 50%; box-sizing: border-box; animation: rotation 1s linear infinite; vertical-align: middle; margin-right: 5px; }
+        @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="header">EAG Stock Analyst</div>
+    
+    <div class="chat-container" id="chatHistory">
+        <div class="bubble agent">
+            Hello! I am your agentic stock market analyst. What stock would you like me to analyze today?
+        </div>
+    </div>
+    
+    <div class="input-container">
+        <textarea id="taskInput" placeholder="Analyze Force Motors..."></textarea>
+        <button id="submitBtn">Send</button>
+    </div>
+    
+    <script src="marked.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
